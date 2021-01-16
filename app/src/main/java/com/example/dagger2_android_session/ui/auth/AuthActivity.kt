@@ -1,15 +1,16 @@
-package com.example.dagger2_android_session
+package com.example.dagger2_android_session.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.RequestManager
+import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.databinding.ActivityAuthBinding
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import javax.inject.Inject
 
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : DaggerActivity() {
 
     @Inject
     lateinit var requestManager: RequestManager
@@ -18,9 +19,10 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidInjection.inject(this)
         setContentView(R.layout.activity_auth)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_auth
+        )
         binding?.imageView?.let {
             requestManager.load(R.drawable.ic_launcher_foreground).into(
                 it
