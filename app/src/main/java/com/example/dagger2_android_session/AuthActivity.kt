@@ -9,7 +9,7 @@ import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import javax.inject.Inject
 
-class AuthActivity : DaggerActivity() {
+class AuthActivity : AppCompatActivity() {
 
     @Inject
     lateinit var requestManager: RequestManager
@@ -18,6 +18,7 @@ class AuthActivity : DaggerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         setContentView(R.layout.activity_auth)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
         binding?.imageView?.let {
