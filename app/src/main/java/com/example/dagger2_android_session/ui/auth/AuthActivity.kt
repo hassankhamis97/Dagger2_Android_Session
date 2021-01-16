@@ -40,6 +40,15 @@ class AuthActivity : DaggerAppCompatActivity() {
         Log.d(TAG, "onCreate: requestManager = $requestManager")
 
         initializeViewModel()
+        addListeners()
+    }
+
+    private fun addListeners() {
+        binding?.apply {
+            loginBtn.setOnClickListener {
+                viewModel.login(this.userIdText.text.toString().toInt())
+            }
+        }
     }
 
     fun initializeViewModel() {

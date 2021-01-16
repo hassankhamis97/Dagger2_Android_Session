@@ -2,6 +2,7 @@ package com.example.dagger2_android_session.di
 
 import android.app.Application
 import com.example.dagger2_android_session.application.BaseApplication
+import com.example.dagger2_android_session.di.auth.AuthModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
