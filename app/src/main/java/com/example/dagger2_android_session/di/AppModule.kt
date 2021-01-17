@@ -1,6 +1,8 @@
 package com.example.dagger2_android_session.di
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
@@ -30,4 +32,9 @@ class AppModule {
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder().baseUrl(Constants.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create()).build()
+
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(context: Context): SharedPreferences = context.getSharedPreferences("Dagger2", Context.MODE_PRIVATE)
 }

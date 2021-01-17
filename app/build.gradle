@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -33,6 +34,9 @@ android {
     }
     buildFeatures {
         dataBinding = true
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -66,6 +70,8 @@ dependencies {
     def retrofit_version ="2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi:1.9.3"
+    implementation "com.squareup.moshi:moshi-kotlin:1.9.3"
 
     // coroutines
     def coroutines_version = "1.4.2"
