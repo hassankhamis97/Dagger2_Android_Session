@@ -71,4 +71,7 @@ dependencies {
     def coroutines_version = "1.4.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
+    //Network Check
+    implementation "com.github.haroldadmin:NetworkResponseAdapter:4.1.0"
+
 }
