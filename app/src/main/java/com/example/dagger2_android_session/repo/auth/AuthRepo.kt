@@ -14,8 +14,9 @@ class AuthRepo @Inject constructor(val authRepoRemoteImp: AuthRepoRemoteImp, val
         val response = authRepoRemoteImp.login(id)
         when (response) {
             is NetworkResponse.Success -> {
-                
-                return@withContext response.body
+                val user = response.body
+                authRepoLocalImp.createUser(user)
+                return@withContext user
             }
             else -> {
                 return@withContext User()
