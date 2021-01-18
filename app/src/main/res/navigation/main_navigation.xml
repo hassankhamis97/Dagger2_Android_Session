@@ -9,4 +9,9 @@
         android:name="com.example.dagger2_android_session.ui.main.posts.PostsFragment"
         android:label="PostsFragment"
         tools:layout="@layout/posts_fragment"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.dagger2_android_session.ui.main.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment"/>
 </navigation>

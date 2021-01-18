@@ -18,4 +18,8 @@ class SessionManager @Inject constructor(val preferences: SharedPreferences) {
     fun createUser(user: User) {
         this.user = user
     }
+
+    fun logoutUser() {
+        this.user = User()
+    }
 }

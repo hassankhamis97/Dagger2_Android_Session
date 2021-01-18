@@ -19,7 +19,7 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.activity_auth) {
-    private val TAG = "Auth"
+    private val TAG = "user"
     @Inject
     lateinit var requestManager: RequestManager
 
