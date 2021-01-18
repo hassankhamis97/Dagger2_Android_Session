@@ -22,9 +22,9 @@ abstract class BaseActivity<VDB: ViewDataBinding, VM: ViewModel>(val layoutId: I
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)
+        initializeViewModel()
         setListeners()
         setObservers()
-        initializeViewModel()
     }
 
     override fun onDestroy() {

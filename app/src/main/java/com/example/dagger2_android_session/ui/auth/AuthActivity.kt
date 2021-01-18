@@ -11,6 +11,7 @@ import com.bumptech.glide.RequestManager
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.databinding.ActivityAuthBinding
 import com.example.dagger2_android_session.ui.BaseActivity
+import com.example.dagger2_android_session.ui.main.MainActivity
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
@@ -47,7 +48,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
     override fun setObservers() {
         viewModel.loginEvent.observe(this, Observer {
             if (it) {
-                openNewActivity(AuthActivity::class.java)
+                openNewActivity(MainActivity::class.java)
             }
         })
     }
