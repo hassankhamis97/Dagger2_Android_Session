@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.RequestManager
 import com.example.dagger2_android_session.R
+import com.example.dagger2_android_session.data.models.User
 import com.example.dagger2_android_session.databinding.ActivityAuthBinding
 import com.example.dagger2_android_session.ui.BaseActivity
 import com.example.dagger2_android_session.ui.main.MainActivity
@@ -22,6 +23,9 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
     @Inject
     lateinit var requestManager: RequestManager
 
+    @Inject
+    lateinit var user: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,6 +35,13 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
             )
         }
         Log.d(TAG, "onCreate: requestManager = $requestManager")
+
+        Log.d(TAG, "onCreate: user = $user + add = ${System.identityHashCode(user)}")
+
+        if (user.id > 0) {
+            viewModel.setLogin()
+        }
+
     }
 
     override fun initializeViewModel() {
@@ -49,6 +60,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
         viewModel.loginEvent.observe(this, Observer {
             if (it) {
                 openNewActivity(MainActivity::class.java)
+                finish()
             }
         })
     }

@@ -29,8 +29,12 @@ class AuthViewModel @Inject constructor(val authRepo: AuthRepo, val sessionManag
         viewModelScope.launch {
             val user = authRepo.login(id)
             if (user.id != -1) {
-                _loginEvent.postValue(true)
+                setLogin()
             }
         }
+    }
+
+    fun setLogin() {
+        _loginEvent.postValue(true)
     }
 }

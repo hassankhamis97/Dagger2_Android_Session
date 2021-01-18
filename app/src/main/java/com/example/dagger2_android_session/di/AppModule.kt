@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.example.dagger2_android_session.R
+import com.example.dagger2_android_session.data.models.User
+import com.example.dagger2_android_session.local.SessionManager
 import com.example.dagger2_android_session.util.Constants
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.squareup.moshi.Moshi
@@ -37,7 +39,6 @@ abstract class AppModule {
         fun provideMoshi(): Moshi =
             Moshi.Builder()
                 .add(KotlinJsonAdapterFactory())
-//                .add(SingleToArrayAdapter.INSTANCE)
                 .build()
 
 
@@ -54,6 +55,9 @@ abstract class AppModule {
         @Provides
         fun provideSharedPreferences(context: Context): SharedPreferences = context.getSharedPreferences("Dagger2", Context.MODE_PRIVATE)
 
+        @Singleton
+        @Provides
+        fun provideUser(sessionManager: SessionManager): User = sessionManager.user
     }
 
 
