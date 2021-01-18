@@ -15,7 +15,7 @@ class AuthModule {
     @Provides
     fun provideAuthAPI(retrofit: Retrofit): AuthAPI = retrofit.create(AuthAPI::class.java)
 
-    @AuthScope
-    @Provides
-    fun provideUser(sessionManager: SessionManager): User = sessionManager.user
+//    @AuthScope
+//    @Provides
+//    fun provideUser(sessionManager: SessionManager): User = sessionManager.user
 }

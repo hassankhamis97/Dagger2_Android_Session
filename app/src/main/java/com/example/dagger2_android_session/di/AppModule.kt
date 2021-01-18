@@ -55,7 +55,9 @@ abstract class AppModule {
         @Provides
         fun provideSharedPreferences(context: Context): SharedPreferences = context.getSharedPreferences("Dagger2", Context.MODE_PRIVATE)
 
-
+        @Singleton
+        @Provides
+        fun provideUser(sessionManager: SessionManager): User = sessionManager.user
     }
 
 

@@ -9,10 +9,10 @@ import javax.inject.Inject
 
 @Parcelize
 data class User (
-    val id: Int,
-    val name: String,
-    val email: String,
-    val website: String
+    var id: Int,
+    var name: String,
+    var email: String,
+    var website: String
 ) : Parcelable {
     constructor(): this(0,"","","")
 

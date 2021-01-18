@@ -11,6 +11,7 @@ import com.bumptech.glide.RequestManager
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.data.models.User
 import com.example.dagger2_android_session.databinding.ActivityAuthBinding
+import com.example.dagger2_android_session.local.SessionManager
 import com.example.dagger2_android_session.ui.BaseActivity
 import com.example.dagger2_android_session.ui.main.MainActivity
 import dagger.android.AndroidInjection
@@ -25,6 +26,9 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
 
     @Inject
     lateinit var user: User
+
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +63,12 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
     override fun setObservers() {
         viewModel.loginEvent.observe(this, Observer {
             if (it) {
+                user.apply {
+                    id = sessionManager.user.id
+                    email = sessionManager.user.email
+                    name = sessionManager.user.name
+                    website = sessionManager.user.website
+                }
                 openNewActivity(MainActivity::class.java)
                 finish()
             }

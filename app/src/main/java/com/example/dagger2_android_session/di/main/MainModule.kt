@@ -8,7 +8,7 @@ import dagger.Provides
 
 @Module
 class MainModule {
-    @MainScope
-    @Provides
-    fun provideUser(sessionManager: SessionManager): User = sessionManager.user
+//    @MainScope
+//    @Provides
+//    fun provideUser(sessionManager: SessionManager): User = sessionManager.user
 }
