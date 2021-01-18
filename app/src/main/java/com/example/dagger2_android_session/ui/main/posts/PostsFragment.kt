@@ -12,7 +12,7 @@ import com.example.dagger2_android_session.ui.BaseFragment
 
 class PostsFragment : BaseFragment<PostsFragmentBinding, PostsViewModel>(R.layout.posts_fragment) {
     override fun initializeViewModel() {
-
+        initializeViewModel(PostsViewModel::class.java)
     }
 
     override fun setListeners() {

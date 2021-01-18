@@ -27,7 +27,7 @@ abstract class BaseFragment<VDB: ViewDataBinding, VM: ViewModel>(private val lay
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, container, false)
+        binding = DataBindingUtil.inflate<VDB>(inflater, layoutId, container, false)
         return binding?.root
     }
 

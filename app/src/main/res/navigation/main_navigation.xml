@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/postsFragment">
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.example.dagger2_android_session.ui.main.posts.PostsFragment"
+        android:label="PostsFragment"
+        tools:layout="@layout/posts_fragment"/>
+</navigation>
