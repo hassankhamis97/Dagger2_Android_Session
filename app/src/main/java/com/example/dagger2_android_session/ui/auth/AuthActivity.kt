@@ -15,7 +15,7 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity() {
-    private val TAG = "Auth"
+    private val TAG = "Dagger2_Android_Session"
     @Inject
     lateinit var requestManager: RequestManager
 
