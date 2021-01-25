@@ -42,7 +42,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(R.layout.a
 
         Log.d(TAG, "onCreate: user = $user + add = ${System.identityHashCode(user)}")
 
-        if (user.id > 0) {
+        if (sessionManager.user.id > 0) {
             viewModel.setLogin()
         }
 

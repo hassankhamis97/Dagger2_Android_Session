@@ -14,7 +14,7 @@ class ProfileViewModel @Inject constructor(private val mainRepo: MainRepo) : Vie
         get() = _logoutEvent
 
     fun logout() {
-        _logoutEvent.postValue(true)
         mainRepo.logout()
+        _logoutEvent.postValue(true)
     }
 }
