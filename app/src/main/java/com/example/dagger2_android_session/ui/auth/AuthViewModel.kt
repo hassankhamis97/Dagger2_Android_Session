@@ -18,7 +18,7 @@ class AuthViewModel @Inject constructor(val authRepo: AuthRepo, val sessionManag
     val loginEvent: LiveData<Boolean>
         get() = _loginEvent
 
-    private val TAG = "Auth"
+    private val TAG = "Dagger2_Android_Session"
     init {
         Log.d(TAG, ": start AuthViewModel")
         val y = sessionManager.user
