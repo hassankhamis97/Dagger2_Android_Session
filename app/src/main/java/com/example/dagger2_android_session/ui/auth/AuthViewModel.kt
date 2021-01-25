@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class AuthViewModel @Inject constructor(val authRepo: AuthRepo): ViewModel() {
-    private val TAG = "Auth"
+    private val TAG = "Dagger2_Android_Session"
     init {
         Log.d(TAG, ": start AuthViewModel")
     }
