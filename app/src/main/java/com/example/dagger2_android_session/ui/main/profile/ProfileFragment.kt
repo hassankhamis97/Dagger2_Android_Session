@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.data.models.User
 import com.example.dagger2_android_session.databinding.ProfileFragmentBinding
+import com.example.dagger2_android_session.ui.BaseActivity
 import com.example.dagger2_android_session.ui.BaseFragment
+import com.example.dagger2_android_session.ui.auth.AuthActivity
+import com.example.dagger2_android_session.ui.main.MainActivity
 import com.example.dagger2_android_session.ui.main.posts.PostsViewModel
 import javax.inject.Inject
 
@@ -37,7 +41,13 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>(R
     }
 
     override fun setObservers() {
-
+        viewModel.logoutEvent.observe(this, Observer {
+            if (it)
+            {
+                openNewActivity(AuthActivity::class.java)
+                activity?.finish()
+            }
+        })
     }
 
     override fun removeObservers() {

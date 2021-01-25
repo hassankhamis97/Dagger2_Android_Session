@@ -39,7 +39,7 @@ abstract class BaseActivity<VDB: ViewDataBinding, VM: ViewModel>(val layoutId: I
         viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass)
     }
 
-    protected fun openNewActivity(activityClass: Class<out DaggerAppCompatActivity>) {
+    fun openNewActivity(activityClass: Class<out DaggerAppCompatActivity>) {
         val intent = Intent(this, activityClass)
         startActivity(intent)
     }
