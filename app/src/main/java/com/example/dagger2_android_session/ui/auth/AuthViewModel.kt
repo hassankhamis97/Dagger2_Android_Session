@@ -8,6 +8,6 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(): ViewModel() {
     private val TAG = "Auth"
     init {
-        Log.d(TAG, ": start AuthViewModel")
+        Log.d(TAG, ": start AuthViewModel") 
     }
 }
