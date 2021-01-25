@@ -6,7 +6,7 @@ import com.bumptech.glide.RequestManager
 import javax.inject.Inject
 
 class AuthViewModel @Inject constructor(): ViewModel() {
-    private val TAG = "Auth"
+    private val TAG = "Dagger2_Android_Session"
     init {
         Log.d(TAG, ": start AuthViewModel") 
     }
