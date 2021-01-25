@@ -19,7 +19,7 @@ import com.example.dagger2_android_session.ui.main.posts.PostsViewModel
 import javax.inject.Inject
 
 class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>(R.layout.profile_fragment) {
-    private val TAG = "user"
+    private val TAG = "Dagger2_Android_Session"
 
     @Inject
     lateinit var user: User
