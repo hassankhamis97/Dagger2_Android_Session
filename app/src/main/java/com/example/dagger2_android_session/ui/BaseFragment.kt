@@ -10,7 +10,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.di.DaggerViewModelFactory
+import com.example.dagger2_android_session.ui.auth.AuthActivity
 import com.example.dagger2_android_session.ui.main.posts.PostsViewModel
+import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -48,6 +50,10 @@ abstract class BaseFragment<VDB: ViewDataBinding, VM: ViewModel>(private val lay
 
     fun initializeViewModel(viewModelClass: Class<out VM>) {
         viewModel = ViewModelProvider(this, viewModelFactory).get(viewModelClass)
+    }
+
+    fun openNewActivity(activityClass: Class<out DaggerAppCompatActivity>) {
+        (activity as BaseActivity<*, *>).openNewActivity(activityClass)
     }
 
     abstract fun setListeners()
