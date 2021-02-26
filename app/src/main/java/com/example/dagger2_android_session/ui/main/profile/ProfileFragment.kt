@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.data.models.User
 import com.example.dagger2_android_session.databinding.ProfileFragmentBinding
+import com.example.dagger2_android_session.local.SessionManager
 import com.example.dagger2_android_session.ui.BaseActivity
 import com.example.dagger2_android_session.ui.BaseFragment
 import com.example.dagger2_android_session.ui.auth.AuthActivity
@@ -23,6 +24,9 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>(R
 
     @Inject
     lateinit var user: User
+
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -44,6 +48,12 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>(R
         viewModel.logoutEvent.observe(this, Observer {
             if (it)
             {
+                user.apply {
+                    id = sessionManager.user.id
+                    email = sessionManager.user.email
+                    name = sessionManager.user.name
+                    website = sessionManager.user.website
+                }
                 openNewActivity(AuthActivity::class.java)
                 activity?.finish()
             }

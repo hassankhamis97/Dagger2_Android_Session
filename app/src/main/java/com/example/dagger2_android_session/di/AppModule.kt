@@ -60,7 +60,7 @@ abstract class AppModule {
         fun provideUser(sessionManager: SessionManager): User = sessionManager.user
     }
 
-
+    @Singleton
     @Binds
     abstract fun bindAppContext(application: Application): Context
 }
