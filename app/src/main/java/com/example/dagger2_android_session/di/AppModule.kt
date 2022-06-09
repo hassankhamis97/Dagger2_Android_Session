@@ -6,6 +6,9 @@ import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.example.dagger2_android_session.R
 import com.example.dagger2_android_session.util.Constants
+import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -27,7 +30,15 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit =
+    fun provideMoshi(): Moshi =
+        Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(moshi: Moshi): Retrofit =
         Retrofit.Builder().baseUrl(Constants.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(NetworkResponseAdapterFactory()).build()
 }
