@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainFragmentBuildersModule {
 
     @ContributesAndroidInjector(modules = [PostsViewModelModule::class])
-    abstract fun ContributesPostsFragment(): PostsFragment
+    abstract fun contributesPostsFragment(): PostsFragment
 }
